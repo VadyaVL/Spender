@@ -1,6 +1,5 @@
 ﻿using FreshMvvm;
 using Spender.ViewModels;
-
 using Xamarin.Forms;
 
 namespace Spender
@@ -15,5 +14,5 @@ namespace Spender
 
             this.MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<MainViewModel>());
         }
-	}
+    }
 }
