@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AutoMapper;
+using Spender.Logic.Models;
+using Spender.Logic.Services;
+using System.Collections.ObjectModel;
 
 namespace Spender.ViewModels
 {
@@ -13,6 +14,8 @@ namespace Spender.ViewModels
         #region Fields
 
         private string _title;
+
+        private ObservableCollection<CategoryViewModel> _collection = new ObservableCollection<CategoryViewModel>();
 
         #endregion
 
@@ -28,6 +31,8 @@ namespace Spender.ViewModels
             }
         }
 
+        public ObservableCollection<CategoryViewModel> Collection => this._collection;
+
         #endregion
 
         #region Services
@@ -40,9 +45,9 @@ namespace Spender.ViewModels
 
         #region Constructors
 
-        public MainViewModel()
+        public MainViewModel(ICategoryService categoryService)
         {
-
+            this.CategoryService = categoryService;
         }
 
         #endregion
@@ -54,6 +59,13 @@ namespace Spender.ViewModels
             base.Init(initData);
 
             this.Title = "Main Init";
+
+            var data = this.CategoryService.GetList();
+
+            foreach (var category in data)
+            {
+                this.Collection.Add(Mapper.Map<CategoryViewModel>(category));
+            }
         }
 
         #endregion

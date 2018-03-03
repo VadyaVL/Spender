@@ -8,6 +8,8 @@ namespace Spender.Logic
         public static void RegisterDependencies(FreshTinyIoCContainer container)
         {
             container.Register<ITimerService, TimerService>();
+
+            container.Register<ICategoryService, CategoryService>();
         }
     }
 }

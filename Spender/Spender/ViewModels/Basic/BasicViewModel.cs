@@ -21,6 +21,8 @@ namespace Spender.ViewModels
 
         protected ITimerService TimerService { get; set; }
 
+        protected ICategoryService CategoryService { get; set; }
+
         #endregion
 
         #region Commands

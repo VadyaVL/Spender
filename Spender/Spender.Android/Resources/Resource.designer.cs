@@ -2820,10 +2820,10 @@ namespace Spender.Droid
 			public const int notify_panel_notification_icon_bg = 2130837771;
 			
 			// aapt resource value: 0x7f02010c
-			public const int splash_screen = 2130837772;
+			public const int splash_icon = 2130837772;
 			
 			// aapt resource value: 0x7f02010d
-			public const int splash_vedver_white = 2130837773;
+			public const int splash_screen = 2130837773;
 			
 			static Drawable()
 			{

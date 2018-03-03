@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Spender"
              x:Class="Spender.Pages.MainPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             
+             xmlns:templates="clr-namespace:Spender.Templates">
 
-	<Label Text="Welcome to MVVM Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout VerticalOptions="FillAndExpand">
+        <!-- Current -->
+        <!-- Task list -->
+        <ListView VerticalOptions="FillAndExpand"
+                  SeparatorVisibility="Default"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding Collection}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <templates:CategoryItem />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 
 </ContentPage>

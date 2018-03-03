@@ -2,6 +2,8 @@
 using FreshMvvm;
 using FreshTinyIoC;
 using Spender.Logic;
+using Spender.Logic.Models;
+using Spender.ViewModels;
 
 namespace Spender
 {
@@ -41,7 +43,7 @@ namespace Spender
 
         #endregion
 
-        #region Mehods
+        #region Methods
 
         public void Setup()
         {
@@ -79,7 +81,8 @@ namespace Spender
 
         private void RegisterMappers(IMapperConfigurationExpression cfg)
         {
-
+            cfg.CreateMap<CategoryModel, CategoryViewModel>();
+            cfg.CreateMap<CategoryViewModel, CategoryModel>();
         }
 
         #endregion
