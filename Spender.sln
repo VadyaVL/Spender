@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spender.Android", "Spender\Spender.Android\Spender.Android.csproj", "{A1527889-06A2-486E-BE45-3BAEAD197F06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spender", "Spender\Spender\Spender.csproj", "{11E8ED24-EC03-4CCA-8250-C469BBE94FE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{233D0D17-EBE0-4E95-9B3F-DE0968E5FBE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E9199EB9-EA10-4AC3-9EA1-26638D1BB764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spender.Dal", "Spender\Spender.Dal\Spender.Dal.csproj", "{BCF9EACD-E907-4039-A722-15C74CF7452E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spender.Models", "Spender\Spender.Models\Spender.Models.csproj", "{0877BFB9-9084-4256-BE38-F312C92391D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spender.Logic", "Spender\Spender.Logic\Spender.Logic.csproj", "{0F92298E-AEEA-4DBA-9D7C-1ABBEA190512}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1527889-06A2-486E-BE45-3BAEAD197F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1527889-06A2-486E-BE45-3BAEAD197F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1527889-06A2-486E-BE45-3BAEAD197F06}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A1527889-06A2-486E-BE45-3BAEAD197F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1527889-06A2-486E-BE45-3BAEAD197F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1527889-06A2-486E-BE45-3BAEAD197F06}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{11E8ED24-EC03-4CCA-8250-C469BBE94FE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E8ED24-EC03-4CCA-8250-C469BBE94FE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E8ED24-EC03-4CCA-8250-C469BBE94FE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E8ED24-EC03-4CCA-8250-C469BBE94FE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF9EACD-E907-4039-A722-15C74CF7452E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF9EACD-E907-4039-A722-15C74CF7452E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF9EACD-E907-4039-A722-15C74CF7452E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF9EACD-E907-4039-A722-15C74CF7452E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0877BFB9-9084-4256-BE38-F312C92391D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0877BFB9-9084-4256-BE38-F312C92391D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0877BFB9-9084-4256-BE38-F312C92391D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0877BFB9-9084-4256-BE38-F312C92391D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F92298E-AEEA-4DBA-9D7C-1ABBEA190512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F92298E-AEEA-4DBA-9D7C-1ABBEA190512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F92298E-AEEA-4DBA-9D7C-1ABBEA190512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F92298E-AEEA-4DBA-9D7C-1ABBEA190512}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1527889-06A2-486E-BE45-3BAEAD197F06} = {233D0D17-EBE0-4E95-9B3F-DE0968E5FBE2}
+		{11E8ED24-EC03-4CCA-8250-C469BBE94FE3} = {E9199EB9-EA10-4AC3-9EA1-26638D1BB764}
+		{BCF9EACD-E907-4039-A722-15C74CF7452E} = {E9199EB9-EA10-4AC3-9EA1-26638D1BB764}
+		{0877BFB9-9084-4256-BE38-F312C92391D2} = {E9199EB9-EA10-4AC3-9EA1-26638D1BB764}
+		{0F92298E-AEEA-4DBA-9D7C-1ABBEA190512} = {E9199EB9-EA10-4AC3-9EA1-26638D1BB764}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {656D03B5-7B90-4F0A-ADDD-32B4A1F81B77}
+	EndGlobalSection
+EndGlobal
