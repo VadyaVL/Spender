@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Spender"
              x:Class="Spender.Pages.MainPage"
-             Title="{Binding Title}"
+             Title="{extensions:Translate MainTitle}"
              
-             xmlns:templates="clr-namespace:Spender.Templates">
+             xmlns:templates="clr-namespace:Spender.Templates"
+             xmlns:extensions="clr-namespace:Spender.Extensions">
 
     <StackLayout VerticalOptions="FillAndExpand">
         <!-- Current -->

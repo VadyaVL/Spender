@@ -68,6 +68,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Services\Localize\LocalizeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\splashy_loader.json" />
@@ -98,6 +99,10 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Spender.Core\Spender.Core.csproj">
+      <Project>{4DCAE2E8-CD9D-4345-9760-A0541AA84DE3}</Project>
+      <Name>Spender.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spender\Spender.csproj">
       <Project>{CB288424-F592-4AC6-8769-EAE6EBA919A0}</Project>
       <Name>Spender</Name>
