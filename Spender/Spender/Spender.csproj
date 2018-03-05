@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Spender.Core\Spender.Core.csproj" />
     <ProjectReference Include="..\Spender.Logic\Spender.Logic.csproj" />
   </ItemGroup>
 
