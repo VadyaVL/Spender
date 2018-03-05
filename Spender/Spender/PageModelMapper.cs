@@ -7,7 +7,7 @@ namespace Spender
     {
         public string GetPageTypeName(Type pageModelType)
         {
-            return pageModelType.AssemblyQualifiedName.Replace("ViewModel", "Page");
+            return pageModelType.AssemblyQualifiedName.Replace("ViewModel", "View");
         }
     }
 }

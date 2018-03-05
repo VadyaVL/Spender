@@ -19,8 +19,8 @@
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\MainPage.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Resources\Resource.Designer.cs">
       <DesignTime>True</DesignTime>
