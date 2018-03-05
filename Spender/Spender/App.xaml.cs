@@ -1,4 +1,6 @@
 ﻿using FreshMvvm;
+using FreshTinyIoC;
+using Spender.Logic.Services;
 using Spender.Resources;
 using Spender.Services;
 using Spender.ViewModels;
@@ -13,6 +15,8 @@ namespace Spender
 		{
 			InitializeComponent();
 
+            AppSetup.Instance.Setup();
+
             // Localization. Replace to best place
 
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
@@ -24,7 +28,21 @@ namespace Spender
                 DependencyService.Get<ILocalizeService>().SetLocale(ci);    // set the Thread for locale-aware methods
             }
 
-            AppSetup.Instance.Setup();
+            // First Init - find best place. Replace it to MainVm
+            var setting = FreshTinyIoCContainer.Current.Resolve<ISettingService>();
+
+            if (setting.IsFirstApplicationRun)
+            {
+                setting.IsFirstApplicationRun = false;
+
+                if (!setting.IsDefaultCategoryInit)
+                {
+                    setting.IsDefaultCategoryInit = true;
+
+                    var categoryService = FreshTinyIoCContainer.Current.Resolve<ICategoryService>();
+                    categoryService.InitDefault();
+                }
+            }
 
             this.MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<MainViewModel>());
         }

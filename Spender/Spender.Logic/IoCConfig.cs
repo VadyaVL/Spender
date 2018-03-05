@@ -1,4 +1,5 @@
 ﻿using FreshTinyIoC;
+using Spender.Dal;
 using Spender.Logic.Services;
 
 namespace Spender.Logic
@@ -10,6 +11,8 @@ namespace Spender.Logic
             container.Register<ITimerService, TimerService>();
 
             container.Register<ICategoryService, CategoryService>();
+
+            container.Register<IUow, Uow>();
         }
     }
 }

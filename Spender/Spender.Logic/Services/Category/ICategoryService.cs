@@ -8,5 +8,7 @@ namespace Spender.Logic.Services
         ICollection<CategoryModel> GetList();
 
         long Create(CategoryModel newCategory);
+
+        void InitDefault();
     }
 }

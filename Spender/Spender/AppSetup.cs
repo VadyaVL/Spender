@@ -3,6 +3,7 @@ using FreshMvvm;
 using FreshTinyIoC;
 using Spender.Logic;
 using Spender.Logic.Models;
+using Spender.Services;
 using Spender.ViewModels;
 
 namespace Spender
@@ -76,7 +77,7 @@ namespace Spender
 
         private void RegisterDependencies(FreshTinyIoCContainer container)
         {
-
+            container.Register<ISettingService, SettingService>();
         }
 
         private void RegisterMappers(IMapperConfigurationExpression cfg)
