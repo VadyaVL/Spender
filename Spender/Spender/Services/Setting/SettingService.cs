@@ -18,5 +18,11 @@ namespace Spender.Services
             get => AppSettings.GetValueOrDefault(nameof(this.IsDefaultCategoryInit), false);
             set => AppSettings.AddOrUpdateValue(nameof(this.IsDefaultCategoryInit), value);
         }
+
+        public string LocalizationCode
+        {
+            get => AppSettings.GetValueOrDefault(nameof(this.LocalizationCode), "en-US");   // uk-UA
+            set => AppSettings.AddOrUpdateValue(nameof(this.LocalizationCode), value);
+        }
     }
 }

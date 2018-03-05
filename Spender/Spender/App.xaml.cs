@@ -1,10 +1,5 @@
 ﻿using FreshMvvm;
-using FreshTinyIoC;
-using Spender.Logic.Services;
-using Spender.Resources;
-using Spender.Services;
 using Spender.ViewModels;
-using System.Globalization;
 using Xamarin.Forms;
 
 namespace Spender
@@ -17,34 +12,17 @@ namespace Spender
 
             AppSetup.Instance.Setup();
 
-            // Localization. Replace to best place
+            // Set Localization.
+            // Set default data.
+            // Redo InitViewModel to First Show Page: with set lang and loa default or not. Imlement localization
+            var initViewModel = FreshPageModelResolver.ResolvePageModel<InitViewModel>();  // Call Init model - bad solution. Find better
+        }
 
-            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
-            {
-                //var ci = DependencyService.Get<ILocalizeService>().GetCurrentCultureInfo();
-                //var ci = new CultureInfo("uk-UA");
-                var ci = new CultureInfo("en-US");
-                Resource.Culture = ci;                                      // set the RESX for resource localization
-                DependencyService.Get<ILocalizeService>().SetLocale(ci);    // set the Thread for locale-aware methods
-            }
-
-            // First Init - find best place. Replace it to MainVm
-            var setting = FreshTinyIoCContainer.Current.Resolve<ISettingService>();
-
-            if (setting.IsFirstApplicationRun)
-            {
-                setting.IsFirstApplicationRun = false;
-
-                if (!setting.IsDefaultCategoryInit)
-                {
-                    setting.IsDefaultCategoryInit = true;
-
-                    var categoryService = FreshTinyIoCContainer.Current.Resolve<ICategoryService>();
-                    categoryService.InitDefault();
-                }
-            }
-
+        public void OpenMainPage()
+        {
             this.MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<MainViewModel>());
         }
+
+        // Open another page: login, welcome or smt.
     }
 }

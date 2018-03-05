@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Spender.Core;
-using Spender.Logic.Models;
 using Spender.Logic.Services;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Spender.ViewModels

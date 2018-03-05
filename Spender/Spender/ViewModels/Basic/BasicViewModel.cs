@@ -1,5 +1,6 @@
 ﻿using FreshMvvm;
 using Spender.Logic.Services;
+using Spender.Services;
 
 namespace Spender.ViewModels
 {
@@ -22,6 +23,8 @@ namespace Spender.ViewModels
         protected ITimerService TimerService { get; set; }
 
         protected ICategoryService CategoryService { get; set; }
+
+        protected ISettingService SettingService { get; set; }
 
         #endregion
 
