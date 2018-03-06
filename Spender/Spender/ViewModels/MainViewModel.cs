@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Spender.Core;
+using MvvmHelpers;
 using Spender.Logic.Services;
 using System.Linq;
 
@@ -13,13 +13,13 @@ namespace Spender.ViewModels
 
         #region Fields
 
-        private RangeObservableCollection<CategoryViewModel> _collection = new RangeObservableCollection<CategoryViewModel>();
+        private ObservableRangeCollection<CategoryViewModel> _collection = new ObservableRangeCollection<CategoryViewModel>();
 
         #endregion
 
         #region Properties
 
-        public RangeObservableCollection<CategoryViewModel> Collection => this._collection;
+        public ObservableRangeCollection<CategoryViewModel> Collection => this._collection;
 
         #endregion
 

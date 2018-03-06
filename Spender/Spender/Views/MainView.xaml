@@ -6,23 +6,30 @@
              Title="{extensions:Translate MainTitle}"
              
              xmlns:templates="clr-namespace:Spender.Templates"
-             xmlns:extensions="clr-namespace:Spender.Extensions">
+             xmlns:extensions="clr-namespace:Spender.Extensions"
+             xmlns:controls="clr-namespace:Spender.Controls">
 
     <StackLayout VerticalOptions="FillAndExpand">
-        <!-- Current -->
-        <!-- Task list -->
-        <ListView VerticalOptions="FillAndExpand"
+
+        <StackLayout Style="{StaticResource contentStyle}">
+            <!-- Current -->
+            <!-- Task list -->
+            <ListView VerticalOptions="FillAndExpand"
                   SeparatorVisibility="Default"
                   HasUnevenRows="True"
                   ItemsSource="{Binding Collection}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <templates:CategoryItem />
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <templates:CategoryItem />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <controls:AdControlView VerticalOptions="EndAndExpand" BackgroundColor="Red" />
+        
     </StackLayout>
 
 </ContentPage>

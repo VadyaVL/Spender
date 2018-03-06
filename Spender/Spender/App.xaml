@@ -6,8 +6,13 @@
 
         <ResourceDictionary>
 
-            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+            <!--<Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="Padding" Value="5" />
+            </Style>-->
+
+            <Style x:Key="contentStyle" TargetType="StackLayout">
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
             
             <Style x:Key="itemTextStyle" TargetType="Label">
