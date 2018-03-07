@@ -16,6 +16,7 @@ namespace Spender
             // Set default data.
             // Redo InitViewModel to First Show Page: with set lang and loa default or not. Imlement localization
             var initViewModel = FreshPageModelResolver.ResolvePageModel<InitViewModel>();  // Call Init model - bad solution. Find better
+            this.MainPage = new FreshNavigationContainer(initViewModel);
         }
 
         public void OpenMainPage()

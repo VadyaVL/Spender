@@ -1,6 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Spender.Views.InitView">
+             x:Class="Spender.Views.InitView"
+             NavigationPage.HasNavigationBar="False"
+             
+             xmlns:extensions="clr-namespace:Spender.Extensions">
+
+    <Grid Style="{StaticResource contentStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{extensions:Translate LanguageText}" Grid.Row="0" Grid.Column="0" />
+            <Picker Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="{extensions:Translate DefaultGenText}" Grid.Row="1" Grid.Column="0" />
+            <Switch x:Name="switch" Grid.Row="1" Grid.Column="1"/>
+
+        </Grid>
+
+        <StackLayout Grid.Row="2">
+            <ScrollView>
+                <Label>
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference switch}, Path=IsToggled}" Value="True">
+                            <Setter Property="Text" Value="{extensions:Translate InitText}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </ScrollView>
+            <Button Text="{extensions:Translate StartText}"
+                    Style="{StaticResource bottomButtonStyle}"
+                    Command="{Binding OpenMainCommand}"/>
+        </StackLayout>
+
+    </Grid>
     
 </ContentPage>

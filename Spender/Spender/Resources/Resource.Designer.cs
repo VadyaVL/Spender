@@ -97,6 +97,15 @@ namespace Spender.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generate by default.
+        /// </summary>
+        internal static string DefaultGenText {
+            get {
+                return ResourceManager.GetString("DefaultGenText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you really want to delete {0}?.
         /// </summary>
         internal static string DeletePatternText {
@@ -133,6 +142,24 @@ namespace Spender.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Will be generated:.
+        /// </summary>
+        internal static string InitText {
+            get {
+                return ResourceManager.GetString("InitText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string LanguageText {
+            get {
+                return ResourceManager.GetString("LanguageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Main page Spender.
         /// </summary>
         internal static string MainTitle {
@@ -147,6 +174,15 @@ namespace Spender.Resources {
         internal static string SaveText {
             get {
                 return ResourceManager.GetString("SaveText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        internal static string StartText {
+            get {
+                return ResourceManager.GetString("StartText", resourceCulture);
             }
         }
     }

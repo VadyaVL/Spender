@@ -2,18 +2,27 @@
 using Spender.Resources;
 using Spender.Services;
 using System.Globalization;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Spender.ViewModels
 {
     public class InitViewModel : BasicViewModel
     {
+        #region Commands
+
+        public ICommand OpenMainCommand { get; private set; }
+
+        #endregion
+
         #region Constructors
 
         public InitViewModel(ISettingService settingService, ICategoryService categoryService)
         {
             this.SettingService = settingService;
             this.CategoryService = categoryService;
+
+            this.OpenMainCommand = new Command(this.OpenMain);
         }
 
         #endregion
@@ -45,13 +54,16 @@ namespace Spender.ViewModels
                     this.CategoryService.InitDefault();
                 }
             }
+        }
 
-            if(App.Current is App app)
+        private void OpenMain()
+        {
+            if (App.Current is App app)
             {
                 app.OpenMainPage();
             }
         }
-        
+
         #endregion
     }
 }

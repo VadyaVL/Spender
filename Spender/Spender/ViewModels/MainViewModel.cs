@@ -31,6 +31,8 @@ namespace Spender.ViewModels
 
         public ICommand OpenCreateCategoryCommand { get; private set; }
 
+        public ICommand OpenChartsCommand { get; private set; }
+        
         public ICommand OpenEditCategoryCommand { get; private set; }
 
         public ICommand DeleteCategoryCommand { get; private set; }
@@ -44,6 +46,7 @@ namespace Spender.ViewModels
             this.CategoryService = categoryService;
 
             this.OpenCreateCategoryCommand = new Command(this.OpenCreateCategory);
+            this.OpenChartsCommand = new Command(this.OpenCharts);
             this.OpenEditCategoryCommand = new Command(this.OpenEditCategory);
             this.DeleteCategoryCommand = new Command(this.DeleteCategory);
         }
@@ -71,6 +74,11 @@ namespace Spender.ViewModels
         {
             MessagingCenter.Subscribe<EditCategoryViewModel, CategoryViewModel>(this, "EditCategory", this.EditCategory);
             await this.CoreMethods.PushPageModel<EditCategoryViewModel>();
+        }
+
+        private void OpenCharts()
+        {
+
         }
 
         private async void OpenEditCategory(object item)

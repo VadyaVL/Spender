@@ -129,6 +129,9 @@
   <data name="ChartsText" xml:space="preserve">
     <value>Графіки</value>
   </data>
+  <data name="DefaultGenText" xml:space="preserve">
+    <value>Згенерувати по замовчуванням</value>
+  </data>
   <data name="DeletePatternText" xml:space="preserve">
     <value>Ви дійсно хочете видалити {0}?</value>
   </data>
@@ -141,10 +144,19 @@
   <data name="EditText" xml:space="preserve">
     <value>Редагувати</value>
   </data>
+  <data name="InitText" xml:space="preserve">
+    <value>Буде згенеровано:</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Мова</value>
+  </data>
   <data name="MainTitle" xml:space="preserve">
     <value>Головна сторінка Spender</value>
   </data>
   <data name="SaveText" xml:space="preserve">
     <value>Зберегти</value>
+  </data>
+  <data name="StartText" xml:space="preserve">
+    <value>Почати</value>
   </data>
 </root>

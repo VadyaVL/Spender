@@ -129,6 +129,9 @@
   <data name="ChartsText" xml:space="preserve">
     <value>Charts</value>
   </data>
+  <data name="DefaultGenText" xml:space="preserve">
+    <value>Generate by default</value>
+  </data>
   <data name="DeletePatternText" xml:space="preserve">
     <value>Do you really want to delete {0}?</value>
   </data>
@@ -141,10 +144,19 @@
   <data name="EditText" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="InitText" xml:space="preserve">
+    <value>Will be generated:</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="MainTitle" xml:space="preserve">
     <value>Main page Spender</value>
   </data>
   <data name="SaveText" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="StartText" xml:space="preserve">
+    <value>Start</value>
   </data>
 </root>

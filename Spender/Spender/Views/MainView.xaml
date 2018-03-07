@@ -16,7 +16,7 @@
                      Command="{Binding OpenCreateCategoryCommand}" />
         <ToolbarItem Text="{extensions:Translate ChartsText}"
                      Icon="ic_action_chart.png"
-                     Command="{Binding OpenCreateCategoryCommand}" />
+                     Command="{Binding OpenChartsCommand}" />
     </ContentPage.ToolbarItems>
     
     <StackLayout VerticalOptions="FillAndExpand">
