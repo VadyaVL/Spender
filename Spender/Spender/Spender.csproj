@@ -45,11 +45,16 @@
     <EmbeddedResource Update="Templates\CategoryItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EditCategoryView.xaml">
+    <EmbeddedResource Update="Views\Category\EditCategoryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\InitView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Job\" />
+    <Folder Include="Views\Job\" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,6 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System.Collections.Generic;
 
 namespace Spender.Models
 {
@@ -9,5 +11,8 @@ namespace Spender.Models
         public int Id { get; set; }
 
         public string Title { get; set; }
+
+        [OneToMany]
+        public ICollection<Job> Jobs { get; set; }
     }
 }

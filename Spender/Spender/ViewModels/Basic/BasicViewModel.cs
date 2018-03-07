@@ -24,6 +24,8 @@ namespace Spender.ViewModels
 
         protected ICategoryService CategoryService { get; set; }
 
+        protected IJobService JobService { get; set; }
+
         protected ISettingService SettingService { get; set; }
 
         #endregion
