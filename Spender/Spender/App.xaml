@@ -24,6 +24,11 @@
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
             </Style>
 
+            <Style x:Key="errorTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+
         </ResourceDictionary>
         
     </Application.Resources>

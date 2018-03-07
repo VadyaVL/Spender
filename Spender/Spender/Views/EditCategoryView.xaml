@@ -4,12 +4,20 @@
              x:Class="Spender.Views.EditCategoryView"
              Title="{extensions:Translate EditCategoryTitle}"
              
-             xmlns:extensions="clr-namespace:Spender.Extensions">
+             xmlns:extensions="clr-namespace:Spender.Extensions"
+             xmlns:converters="clr-namespace:Spender.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FirstErrorConverter x:Key="firstErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout Style="{StaticResource contentStyle}">
 
         <Entry Text="{Binding Title}" />
-
+        <Label Text="{Binding Errors[Title], Converter={StaticResource firstErrorConverter}"
+               Style="{StaticResource errorTextStyle}" />
+        
         <Button Text="{extensions:Translate SaveText}"
                 Style="{StaticResource bottomButtonStyle}"
                 Command="{Binding SaveCommand}" />
