@@ -14,10 +14,14 @@
                 <Setter Property="Padding" Value="5" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
-            
+
             <Style x:Key="itemTextStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="bottomButtonStyle" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
             </Style>
 
         </ResourceDictionary>

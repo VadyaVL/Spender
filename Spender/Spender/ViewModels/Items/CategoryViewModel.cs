@@ -10,6 +10,8 @@
 
         #region Properties
 
+        public int Id { get; set; }
+
         public string Title
         {
             get => this._title;
@@ -19,7 +21,7 @@
                 this.OnPropertyChanged();
             }
         }
-        
+
         #endregion
     }
 }

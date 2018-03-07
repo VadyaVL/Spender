@@ -14,9 +14,19 @@ namespace Spender.Logic.Services
 
         }
 
-        public long Create(CategoryModel newCategory)
+        public int Create(CategoryModel newCategory)
         {
             return this.Unit.Categories.SaveItem(Mapper.Map<Category>(newCategory));
+        }
+
+        public int Edit(CategoryModel newCategory)
+        {
+            return this.Create(newCategory);
+        }
+
+        public int Delete(int id)
+        {
+            return this.Unit.Categories.DeleteItem(id);
         }
 
         public ICollection<CategoryModel> GetList()

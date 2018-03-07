@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcceptText" xml:space="preserve">
+    <value>Так</value>
+  </data>
+  <data name="AddText" xml:space="preserve">
+    <value>Додати</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Ні</value>
+  </data>
+  <data name="DeletePatternText" xml:space="preserve">
+    <value>Ви дійсно хочете видалити {0}?</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
+  <data name="EditCategoryTitle" xml:space="preserve">
+    <value>Редагування категорії</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
   <data name="MainTitle" xml:space="preserve">
     <value>Головна сторінка Spender</value>
+  </data>
+  <data name="SaveText" xml:space="preserve">
+    <value>Зберегти</value>
   </data>
 </root>

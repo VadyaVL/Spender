@@ -7,7 +7,11 @@ namespace Spender.Logic.Services
     {
         ICollection<CategoryModel> GetList();
 
-        long Create(CategoryModel newCategory);
+        int Create(CategoryModel newCategory);
+
+        int Edit(CategoryModel newCategory);
+
+        int Delete(int id);
 
         void InitDefault();
     }
