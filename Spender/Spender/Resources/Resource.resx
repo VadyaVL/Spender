@@ -126,6 +126,9 @@
   <data name="CancelText" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="ChartsText" xml:space="preserve">
+    <value>Charts</value>
+  </data>
   <data name="DeletePatternText" xml:space="preserve">
     <value>Do you really want to delete {0}?</value>
   </data>

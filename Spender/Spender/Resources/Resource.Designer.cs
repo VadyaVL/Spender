@@ -88,6 +88,15 @@ namespace Spender.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Charts.
+        /// </summary>
+        internal static string ChartsText {
+            get {
+                return ResourceManager.GetString("ChartsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you really want to delete {0}?.
         /// </summary>
         internal static string DeletePatternText {

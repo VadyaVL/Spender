@@ -126,6 +126,9 @@
   <data name="CancelText" xml:space="preserve">
     <value>Ні</value>
   </data>
+  <data name="ChartsText" xml:space="preserve">
+    <value>Графіки</value>
+  </data>
   <data name="DeletePatternText" xml:space="preserve">
     <value>Ви дійсно хочете видалити {0}?</value>
   </data>
