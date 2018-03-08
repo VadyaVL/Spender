@@ -3,6 +3,7 @@ using MvvmHelpers;
 using Spender.Logic.Services;
 using Spender.Resources;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -15,15 +16,23 @@ namespace Spender.ViewModels
 
         private ObservableRangeCollection<CategoryViewModel> _collection = new ObservableRangeCollection<CategoryViewModel>();
 
+        private JobViewModel _activeJob;
+
         #endregion
 
         #region Properties
 
         public ObservableRangeCollection<CategoryViewModel> Collection => this._collection;
 
-        #endregion
-
-        #region Services
+        public JobViewModel ActiveJob
+        {
+            get => this._activeJob;
+            set
+            {
+                this._activeJob = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
         #endregion
 
@@ -37,18 +46,25 @@ namespace Spender.ViewModels
 
         public ICommand DeleteCategoryCommand { get; private set; }
 
+        public ICommand StartJobCommand { get; private set; }
+
+        public ICommand StopJobCommand { get; private set; }
+
         #endregion
 
         #region Constructors
 
-        public MainViewModel(ICategoryService categoryService)
+        public MainViewModel(ICategoryService categoryService, ITimerService timerService)
         {
             this.CategoryService = categoryService;
+            this.TimerService = timerService;
 
             this.OpenCreateCategoryCommand = new Command(this.OpenCreateCategory);
             this.OpenChartsCommand = new Command(this.OpenCharts);
             this.OpenEditCategoryCommand = new Command(this.OpenEditCategory);
             this.DeleteCategoryCommand = new Command(this.DeleteCategory);
+            this.StartJobCommand = new Command(this.StartJob);
+            this.StopJobCommand = new Command(this.StopJob);
         }
 
         #endregion
@@ -61,6 +77,8 @@ namespace Spender.ViewModels
             
             var data = this.CategoryService.GetList();
             this.Collection.AddRange(data.Select(category => Mapper.Map<CategoryViewModel>(category)).ToList());
+
+            this.ActiveJob = Mapper.Map<JobViewModel>(this.TimerService.GetActiveJob());
         }
 
         protected override void ViewIsAppearing(object sender, EventArgs e)
@@ -121,6 +139,32 @@ namespace Spender.ViewModels
             {
                 // Or use mapper
                 existed.Title = category.Title;
+            }
+        }
+
+        private void StartJob(object arg)
+        {
+            if (arg is CategoryViewModel category)
+            {
+                var stopJob = true;
+
+                if(this.ActiveJob != null)
+                {
+                    stopJob = this.TimerService.StopJob();
+                }
+
+                if (stopJob)
+                {
+                   this.ActiveJob = Mapper.Map<JobViewModel>(this.TimerService.StartJob(category.Id));
+                }
+            }
+        }
+
+        private void StopJob(object arg)
+        {
+            if (this.ActiveJob != null && this.TimerService.StopJob())
+            {
+                this.ActiveJob = null;
             }
         }
 

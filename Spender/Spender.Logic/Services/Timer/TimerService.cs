@@ -1,17 +1,56 @@
 ﻿using System;
+using AutoMapper;
+using Spender.Dal;
+using Spender.Logic.Models;
+using Spender.Models;
 
 namespace Spender.Logic.Services
 {
-    public class TimerService : ITimerService
+    public class TimerService : BasicService, ITimerService
     {
-        public void Start(ref DateTime dateTime)
+        public TimerService(IUow uow) : base(uow)
         {
-            throw new NotImplementedException();
+
         }
 
-        public void Stop(ref DateTime dateTime)
+        private Job ActiveJob()
         {
-            throw new NotImplementedException();
+            return this.Unit.Jobs.AsQueryable.FirstOrDefault(j => j.End == null);
+        }
+
+        public JobModel GetActiveJob()
+        {
+            return Mapper.Map<JobModel>(this.ActiveJob());
+        }
+
+        public JobModel StartJob(int categoryId)
+        {
+            var job = new Job
+            {
+                CategoryId = categoryId,
+                Start = DateTime.UtcNow
+            };
+
+            var id = this.Unit.Jobs.SaveItem(job);
+            job.Id = id;
+
+            return Mapper.Map<JobModel>(job);
+        }
+
+        public bool StopJob()
+        {
+            var job = this.ActiveJob();
+
+            if(job != null)
+            {
+                job.End = DateTime.UtcNow;
+
+                this.Unit.Jobs.SaveItem(job);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

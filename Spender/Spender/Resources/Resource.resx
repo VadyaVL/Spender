@@ -153,6 +153,9 @@
   <data name="MainTitle" xml:space="preserve">
     <value>Main page Spender</value>
   </data>
+  <data name="PlayText" xml:space="preserve">
+    <value>▶</value>
+  </data>
   <data name="SaveText" xml:space="preserve">
     <value>Save</value>
   </data>

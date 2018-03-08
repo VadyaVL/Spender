@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Spender.Logic.Models;
 
 namespace Spender.Logic.Services
 {
     public interface ITimerService
     {
-        void Start(ref DateTime dateTime);
+        JobModel GetActiveJob();
 
-        void Stop(ref DateTime dateTime);
+        JobModel StartJob(int categoryId);
+
+        bool StopJob();
     }
 }

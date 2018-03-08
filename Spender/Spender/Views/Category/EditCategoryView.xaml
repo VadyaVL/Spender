@@ -15,7 +15,7 @@
     <StackLayout Style="{StaticResource contentStyle}">
 
         <Entry Text="{Binding Title}" />
-        <Label Text="{Binding Errors[Title], Converter={StaticResource firstErrorConverter}"
+        <Label Text="{Binding Errors[Title], Converter={StaticResource firstErrorConverter}}"
                Style="{StaticResource errorTextStyle}" />
         
         <Button Text="{extensions:Translate SaveText}"

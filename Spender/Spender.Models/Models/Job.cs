@@ -12,7 +12,7 @@ namespace Spender.Models
 
         public DateTime Start { get; set; }
 
-        public DateTime End { get; set; }
+        public DateTime? End { get; set; }
 
         [ForeignKey(typeof(Category))]
         public int CategoryId { get; set; }

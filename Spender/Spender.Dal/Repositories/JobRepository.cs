@@ -5,25 +5,25 @@ using System.Linq;
 
 namespace Spender.Dal.Repositories
 {
-    public class CategoryRepository : Repository<Category>
+    public class JobRepository : Repository<Job>
     {
-        public CategoryRepository(string filename) : base(filename)
+        public JobRepository(string filename) : base(filename)
         {
 
         }
 
-        public override TableQuery<Category> AsQueryable => this.database.Table<Category>();
+        public override TableQuery<Job> AsQueryable => this.database.Table<Job>();
 
-        public override IEnumerable<Category> GetItems()
+        public override IEnumerable<Job> GetItems()
         {
-            return database.Table<Category>().Select(x => x).ToList();
+            return database.Table<Job>().Select(x => x).ToList();
         }
 
-        public override Category GetItem(int id)
+        public override Job GetItem(int id)
         {
             try
             {
-                return database.Get<Category>(id);
+                return database.Get<Job>(id);
             }
             catch
             {
@@ -33,10 +33,10 @@ namespace Spender.Dal.Repositories
 
         public override int DeleteItem(int id)
         {
-            return database.Delete<Category>(id);
+            return database.Delete<Job>(id);
         }
 
-        public override int SaveItem(Category item)
+        public override int SaveItem(Job item)
         {
             var exist = this.GetItem(item.Id) != null;
 

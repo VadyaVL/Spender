@@ -169,6 +169,15 @@ namespace Spender.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ▶.
+        /// </summary>
+        internal static string PlayText {
+            get {
+                return ResourceManager.GetString("PlayText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string SaveText {

@@ -8,8 +8,15 @@
              
              xmlns:templates="clr-namespace:Spender.Templates"
              xmlns:extensions="clr-namespace:Spender.Extensions"
+             xmlns:converters="clr-namespace:Spender.Converters"
              xmlns:controls="clr-namespace:Spender.Controls">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ObjectToBoolConverter x:Key="objectToBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{extensions:Translate AddText}"
                      Icon="ic_action_add.png"
@@ -23,6 +30,12 @@
 
         <StackLayout Style="{StaticResource contentStyle}">
             <!-- Current -->
+            <StackLayout IsVisible="{Binding ActiveJob, Converter={StaticResource objectToBoolConverter}}">
+                <Label Text="Current job: " />
+                <Label Text="{Binding ActiveJob.Start}" />
+
+                <Button Text="Stop" Command="{Binding StopJobCommand}" />
+            </StackLayout>
             <!-- Task list -->
             <ListView VerticalOptions="FillAndExpand"
                   SeparatorVisibility="Default"
@@ -39,15 +52,16 @@
                                           Command="{Binding Source={x:Reference root}, Path=BindingContext.DeleteCategoryCommand}"
                                           CommandParameter="{Binding .}" />
                             </ViewCell.ContextActions>
-                            
-                            <templates:CategoryItem />
+
+                            <templates:CategoryItem StartCommand="{Binding Source={x:Reference root}, Path=BindingContext.StartJobCommand}"
+                                                    StartCommandParameter="{Binding .}"/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
 
-        <controls:AdControlView VerticalOptions="EndAndExpand" BackgroundColor="Red" />
+        <!--<controls:AdControlView VerticalOptions="EndAndExpand" BackgroundColor="Red" />-->
         
     </StackLayout>
 

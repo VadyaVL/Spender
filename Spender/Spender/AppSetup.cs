@@ -84,6 +84,17 @@ namespace Spender
         {
             cfg.CreateMap<CategoryModel, CategoryViewModel>();
             cfg.CreateMap<CategoryViewModel, CategoryModel>();
+
+            cfg.CreateMap<JobModel, JobViewModel>()
+                .ForMember(
+                    dest => dest.End,
+                    opt => opt.MapFrom(src => src.End)
+                );
+            cfg.CreateMap<JobViewModel, JobModel>()
+                .ForMember(
+                    dest => dest.End,
+                    opt => opt.MapFrom(src => src.End)
+                );
         }
 
         #endregion

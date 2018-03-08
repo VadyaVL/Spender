@@ -16,6 +16,8 @@ namespace Spender.Dal.Repositories
             this.database.CreateTable<T>();
         }
 
+        public abstract TableQuery<T> AsQueryable { get; }
+
         public abstract IEnumerable<T> GetItems();
 
         public abstract T GetItem(int id);

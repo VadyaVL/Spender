@@ -4,10 +4,12 @@ namespace Spender.Logic.Models
 {
     public class JobModel
     {
+        public int Id { get; set; }
+
         public DateTime Start { get; set; }
 
-        public DateTime End { get; set; }
+        public DateTime? End { get; set; }
 
-        public TimeSpan Duration => this.End == null ? DateTime.UtcNow.Subtract(this.Start) : this.End.Subtract(this.Start);
+        public CategoryModel Category { get; set; }
     }
 }

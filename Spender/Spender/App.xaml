@@ -18,10 +18,19 @@
             <Style x:Key="itemTextStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontSize" Value="16" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             </Style>
 
             <Style x:Key="bottomButtonStyle" TargetType="Button">
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            </Style>
+
+            <Style x:Key="roundButtonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="BorderRadius" Value="20" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             </Style>
 
             <Style x:Key="errorTextStyle" TargetType="Label">

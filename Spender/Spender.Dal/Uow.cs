@@ -36,7 +36,22 @@ namespace Spender.Dal
                 return _categories;
             }
         }
-        
+
+        private static Repository<Job> _jobs;
+
+        public Repository<Job> Jobs
+        {
+            get
+            {
+                if (_jobs == null)
+                {
+                    _jobs = new JobRepository(DatabaseName);
+                }
+
+                return _jobs;
+            }
+        }
+
         #endregion
     }
 }
