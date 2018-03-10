@@ -40,5 +40,10 @@ namespace Spender.Logic.Services
             this.Unit.Categories.SaveItem(new Category { Title = "Work" });
             this.Unit.Categories.SaveItem(new Category { Title = "Home Work" });
         }
+
+        public Category Get(int id)
+        {
+            return this.Unit.Categories.GetItem(id);
+        }
     }
 }

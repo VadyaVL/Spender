@@ -34,6 +34,12 @@ namespace Spender.ViewModels
             set
             {
                 this._end = value;
+
+                if (value.HasValue)
+                {
+                    this.Duration = value.Value.Subtract(this.Start);
+                }
+
                 this.OnPropertyChanged();
             }
         }
@@ -48,7 +54,17 @@ namespace Spender.ViewModels
             }
         }
 
-        public TimeSpan Duration => !this.End.HasValue ? DateTime.UtcNow.Subtract(this.Start) : this.End.Value.Subtract(this.Start);
+        private TimeSpan _duration;
+
+        public TimeSpan Duration
+        {
+            get => this._duration;
+            set
+            {
+                this._duration = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         #endregion
     }

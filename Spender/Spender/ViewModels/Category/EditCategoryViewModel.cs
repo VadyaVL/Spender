@@ -1,4 +1,5 @@
-﻿using Spender.Logic.Models;
+﻿using AutoMapper;
+using Spender.Logic.Models;
 using Spender.Logic.Services;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Input;
@@ -61,18 +62,19 @@ namespace Spender.ViewModels
         {
             if (this.Validate())
             {
-                var newId = this._id;
+                var category = new CategoryModel { Id = this._id, Title = this.Title };
+                int result;
 
-                if (newId == 0)
+                if (category.Id == 0)
                 {
-                    newId = this.CategoryService.Create(new CategoryModel { Title = this.Title });
+                    result = this.CategoryService.Create(category);
                 }
                 else
                 {
-                    newId = this.CategoryService.Edit(new CategoryModel { Id = this._id, Title = this.Title });
+                    result = this.CategoryService.Edit(category);
                 }
 
-                var categoryVM = new CategoryViewModel { Id = this._id, Title = this.Title };
+                var categoryVM = Mapper.Map<CategoryViewModel>(category);
 
                 MessagingCenter.Send(this, "EditCategory", categoryVM);
                 this.CoreMethods.PopPageModel();

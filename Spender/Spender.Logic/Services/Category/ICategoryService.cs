@@ -1,4 +1,5 @@
 ﻿using Spender.Logic.Models;
+using Spender.Models;
 using System.Collections.Generic;
 
 namespace Spender.Logic.Services
@@ -10,6 +11,8 @@ namespace Spender.Logic.Services
         int Create(CategoryModel newCategory);
 
         int Edit(CategoryModel newCategory);
+
+        Category Get(int id);
 
         int Delete(int id);
 

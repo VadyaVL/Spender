@@ -81,8 +81,10 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Services\Background\BackgroundService.cs" />
     <Compile Include="Services\Localize\LocalizeService.cs" />
     <Compile Include="Services\Database\SQLiteAndroid.cs" />
+    <Compile Include="Services\Background\PeriodicService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\splashy_loader.json" />
@@ -161,6 +163,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_action_stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

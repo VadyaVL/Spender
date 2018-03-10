@@ -8,14 +8,23 @@ namespace Spender.Logic.Services
 {
     public class TimerService : BasicService, ITimerService
     {
-        public TimerService(IUow uow) : base(uow)
-        {
+        private ICategoryService CategoryService { get; set; }
 
+        public TimerService(IUow uow, ICategoryService categoryService) : base(uow)
+        {
+            this.CategoryService = categoryService;
         }
 
         private Job ActiveJob()
         {
-            return this.Unit.Jobs.AsQueryable.FirstOrDefault(j => j.End == null);
+            var job = this.Unit.Jobs.AsQueryable.FirstOrDefault(j => j.End == null);
+
+            if(job != null)
+            {
+                job.Category = this.CategoryService.Get(job.CategoryId);
+            }
+
+            return job;
         }
 
         public JobModel GetActiveJob()
@@ -33,6 +42,11 @@ namespace Spender.Logic.Services
 
             var id = this.Unit.Jobs.SaveItem(job);
             job.Id = id;
+
+            if (job != null)
+            {
+                job.Category = this.CategoryService.Get(categoryId);
+            }
 
             return Mapper.Map<JobModel>(job);
         }

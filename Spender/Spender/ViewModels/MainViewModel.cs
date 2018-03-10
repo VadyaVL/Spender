@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using MvvmHelpers;
+using Spender.Core;
 using Spender.Logic.Services;
 using Spender.Resources;
+using Spender.Services;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -17,6 +18,8 @@ namespace Spender.ViewModels
         private ObservableRangeCollection<CategoryViewModel> _collection = new ObservableRangeCollection<CategoryViewModel>();
 
         private JobViewModel _activeJob;
+
+        private bool _isSubscribe;
 
         #endregion
 
@@ -33,6 +36,12 @@ namespace Spender.ViewModels
                 this.RaisePropertyChanged();
             }
         }
+
+        #endregion
+
+        #region Service
+
+        IBackgroundService BackgroundService = DependencyService.Get<IBackgroundService>();
 
         #endregion
 
@@ -79,6 +88,17 @@ namespace Spender.ViewModels
             this.Collection.AddRange(data.Select(category => Mapper.Map<CategoryViewModel>(category)).ToList());
 
             this.ActiveJob = Mapper.Map<JobViewModel>(this.TimerService.GetActiveJob());
+
+            if(this.ActiveJob != null)
+            {
+                MessagingCenter.Subscribe<object, TimeSpan>(this, "UpdateTime", this.UpdateTimer);
+                this.BackgroundService.Start(new NotificationData
+                {
+                    Title = this.ActiveJob.Category?.Title,
+                    StartDateTime = this.ActiveJob.Start
+                });
+                this._isSubscribe = true;
+            }
         }
 
         protected override void ViewIsAppearing(object sender, EventArgs e)
@@ -144,6 +164,7 @@ namespace Spender.ViewModels
 
         private void StartJob(object arg)
         {
+
             if (arg is CategoryViewModel category)
             {
                 var stopJob = true;
@@ -155,7 +176,26 @@ namespace Spender.ViewModels
 
                 if (stopJob)
                 {
-                   this.ActiveJob = Mapper.Map<JobViewModel>(this.TimerService.StartJob(category.Id));
+                    this.ActiveJob = Mapper.Map<JobViewModel>(this.TimerService.StartJob(category.Id));
+
+                    if (this.ActiveJob != null && !this._isSubscribe)
+                    {
+                        MessagingCenter.Subscribe<object, TimeSpan>(this, "UpdateTime", this.UpdateTimer);
+                        this.BackgroundService.Start(new NotificationData
+                        {
+                            Title = this.ActiveJob.Category.Title,
+                            StartDateTime = this.ActiveJob.Start
+                        });
+                        this._isSubscribe = true;
+                    }
+                    else
+                    {
+                        this.BackgroundService.Update(new NotificationData
+                        {
+                            Title = this.ActiveJob.Category.Title,
+                            StartDateTime = this.ActiveJob.Start
+                        });
+                    }
                 }
             }
         }
@@ -165,7 +205,20 @@ namespace Spender.ViewModels
             if (this.ActiveJob != null && this.TimerService.StopJob())
             {
                 this.ActiveJob = null;
+                this.BackgroundService.Stop();
+
+                if (this._isSubscribe)
+                {
+                    MessagingCenter.Unsubscribe<object, TimeSpan>(this, "UpdateTime");
+                    this.BackgroundService.Stop();
+                    this._isSubscribe = false;
+                }
             }
+        }
+
+        private void UpdateTimer(object sender, TimeSpan timeSpan)
+        {
+            this.ActiveJob.Duration = timeSpan;
         }
 
         #endregion
