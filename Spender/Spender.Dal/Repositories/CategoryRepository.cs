@@ -30,25 +30,5 @@ namespace Spender.Dal.Repositories
                 return null;
             }
         }
-
-        public override int DeleteItem(int id)
-        {
-            return database.Delete<Category>(id);
-        }
-
-        public override int SaveItem(Category item)
-        {
-            var exist = this.GetItem(item.Id) != null;
-
-            if (exist)
-            {
-                database.Update(item);
-                return item.Id;
-            }
-            else
-            {
-                return database.Insert(item);
-            }
-        }
     }
 }

@@ -24,7 +24,7 @@ namespace Spender.Logic.Services
             return this.Create(newCategory);
         }
 
-        public int Delete(int id)
+        public bool Delete(int id)
         {
             return this.Unit.Categories.DeleteItem(id);
         }

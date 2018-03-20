@@ -5,11 +5,8 @@ using System;
 namespace Spender.Models
 {
     [Table("Job")]
-    public class Job
+    public class Job : IntIdent
     {
-        [PrimaryKey, AutoIncrement, Column("_id")]
-        public int Id { get; set; }
-
         public DateTime Start { get; set; }
 
         public DateTime? End { get; set; }

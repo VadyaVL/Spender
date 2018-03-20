@@ -33,6 +33,7 @@
             <!-- Current -->
             <StackLayout IsVisible="{Binding ActiveJob, Converter={StaticResource objectToBoolConverter}}">
                 <Label Text="Current job: " />
+                <Label Text="{Binding ActiveJob.Category.Title}" />
                 <Label Text="{Binding ActiveJob.Start}" />
                 <Label Text="{Binding ActiveJob.Duration, Converter={StaticResource timeSpanToStringConverter}}" />
 

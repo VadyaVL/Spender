@@ -5,11 +5,8 @@ using System.Collections.Generic;
 namespace Spender.Models
 {
     [Table("Category")]
-    public class Category
+    public class Category : IntIdent
     {
-        [PrimaryKey, AutoIncrement, Column("_id")]
-        public int Id { get; set; }
-
         public string Title { get; set; }
 
         [OneToMany]

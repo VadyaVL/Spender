@@ -14,7 +14,7 @@ namespace Spender.Logic.Services
 
         Category Get(int id);
 
-        int Delete(int id);
+        bool Delete(int id);
 
         void InitDefault();
     }

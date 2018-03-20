@@ -63,15 +63,16 @@ namespace Spender.ViewModels
             if (this.Validate())
             {
                 var category = new CategoryModel { Id = this._id, Title = this.Title };
-                int result;
+                int id;
 
                 if (category.Id == 0)
                 {
-                    result = this.CategoryService.Create(category);
+                    id = this.CategoryService.Create(category);
+                    category.Id = id;
                 }
                 else
                 {
-                    result = this.CategoryService.Edit(category);
+                    id = this.CategoryService.Edit(category);
                 }
 
                 var categoryVM = Mapper.Map<CategoryViewModel>(category);

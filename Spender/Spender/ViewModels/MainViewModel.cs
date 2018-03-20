@@ -41,7 +41,7 @@ namespace Spender.ViewModels
 
         #region Service
 
-        IBackgroundService BackgroundService = DependencyService.Get<IBackgroundService>();
+        //IBackgroundService BackgroundService = DependencyService.Get<IBackgroundService>();
 
         #endregion
 
@@ -92,11 +92,11 @@ namespace Spender.ViewModels
             if(this.ActiveJob != null)
             {
                 MessagingCenter.Subscribe<object, TimeSpan>(this, "UpdateTime", this.UpdateTimer);
-                this.BackgroundService.Start(new NotificationData
-                {
-                    Title = this.ActiveJob.Category?.Title,
-                    StartDateTime = this.ActiveJob.Start
-                });
+                //this.BackgroundService.Start(new NotificationData
+                //{
+                //    Title = this.ActiveJob.Category?.Title,
+                //    StartDateTime = this.ActiveJob.Start
+                //});
                 this._isSubscribe = true;
             }
         }
@@ -137,9 +137,7 @@ namespace Spender.ViewModels
                 if (isOk)
                 {
                     // Clear job too
-                    var returnId = this.CategoryService.Delete(category.Id);
-
-                    if (returnId != 0)
+                    if (this.CategoryService.Delete(category.Id))
                     {
                         this.Collection.Remove(category);
                     }
@@ -181,20 +179,20 @@ namespace Spender.ViewModels
                     if (this.ActiveJob != null && !this._isSubscribe)
                     {
                         MessagingCenter.Subscribe<object, TimeSpan>(this, "UpdateTime", this.UpdateTimer);
-                        this.BackgroundService.Start(new NotificationData
-                        {
-                            Title = this.ActiveJob.Category.Title,
-                            StartDateTime = this.ActiveJob.Start
-                        });
+                        //this.BackgroundService.Start(new NotificationData
+                        //{
+                        //    Title = this.ActiveJob.Category.Title,
+                        //    StartDateTime = this.ActiveJob.Start
+                        //});
                         this._isSubscribe = true;
                     }
                     else
                     {
-                        this.BackgroundService.Update(new NotificationData
-                        {
-                            Title = this.ActiveJob.Category.Title,
-                            StartDateTime = this.ActiveJob.Start
-                        });
+                        //this.BackgroundService.Update(new NotificationData
+                        //{
+                        //    Title = this.ActiveJob.Category.Title,
+                        //    StartDateTime = this.ActiveJob.Start
+                        //});
                     }
                 }
             }
@@ -205,12 +203,12 @@ namespace Spender.ViewModels
             if (this.ActiveJob != null && this.TimerService.StopJob())
             {
                 this.ActiveJob = null;
-                this.BackgroundService.Stop();
+                //this.BackgroundService.Stop();
 
                 if (this._isSubscribe)
                 {
                     MessagingCenter.Unsubscribe<object, TimeSpan>(this, "UpdateTime");
-                    this.BackgroundService.Stop();
+                    //this.BackgroundService.Stop();
                     this._isSubscribe = false;
                 }
             }
