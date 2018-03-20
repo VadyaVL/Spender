@@ -25,6 +25,9 @@
         <ToolbarItem Text="{extensions:Translate ChartsText}"
                      Icon="ic_action_chart.png"
                      Command="{Binding OpenChartsCommand}" />
+        <ToolbarItem Text="{extensions:Translate AboutTitle}"
+                     Order="Secondary"
+                     Command="{Binding OpenAboutCommand}" />
     </ContentPage.ToolbarItems>
     
     <StackLayout VerticalOptions="FillAndExpand">

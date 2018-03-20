@@ -61,6 +61,28 @@ namespace Spender.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Spender - ...
+        ///
+        ///Icon: https://iconsflow.com and https://romannurik.github.io/AndroidAssetStudio/index.html
+        ///Icon 2: https://fontawesome.com/icons?d=gallery
+        ///Splash: https://www.lottiefiles.com/.
+        /// </summary>
+        internal static string AboutText {
+            get {
+                return ResourceManager.GetString("AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string AboutTitle {
+            get {
+                return ResourceManager.GetString("AboutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string AcceptText {

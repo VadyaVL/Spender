@@ -59,6 +59,8 @@ namespace Spender.ViewModels
 
         public ICommand StopJobCommand { get; private set; }
 
+        public ICommand OpenAboutCommand { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -74,6 +76,7 @@ namespace Spender.ViewModels
             this.DeleteCategoryCommand = new Command(this.DeleteCategory);
             this.StartJobCommand = new Command(this.StartJob);
             this.StopJobCommand = new Command(this.StopJob);
+            this.OpenAboutCommand = new Command(this.OpenAbout);
         }
 
         #endregion
@@ -217,6 +220,11 @@ namespace Spender.ViewModels
         private void UpdateTimer(object sender, TimeSpan timeSpan)
         {
             this.ActiveJob.Duration = timeSpan;
+        }
+
+        private async void OpenAbout()
+        {
+            await this.CoreMethods.PushPageModel<AboutViewModel>();
         }
 
         #endregion
