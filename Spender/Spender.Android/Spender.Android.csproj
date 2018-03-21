@@ -78,9 +78,9 @@
   <ItemGroup>
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Renderer\AdViewRenderer.cs" />
+    <Compile Include="Renderer\LottieViewRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Activities\SplashScreen.cs" />
     <Compile Include="Services\Background\BackgroundService.cs" />
     <Compile Include="Services\Localize\LocalizeService.cs" />
     <Compile Include="Services\Database\SQLiteAndroid.cs" />
@@ -90,7 +90,7 @@
     <AndroidAsset Include="Assets\splashy_loader.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\Splash.axml">
+    <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -130,12 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

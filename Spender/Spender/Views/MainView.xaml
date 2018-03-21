@@ -67,6 +67,25 @@
             </ListView>
         </StackLayout>
 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <controls:LottieControlView Grid.Column="1"
+                                        Grid.Row="1"
+                                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                        BackgroundColor="Red" />
+
+        </Grid>
+        
         <!--<controls:AdControlView VerticalOptions="EndAndExpand" BackgroundColor="Red" />-->
         
     </StackLayout>

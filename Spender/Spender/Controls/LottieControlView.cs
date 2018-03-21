@@ -2,7 +2,7 @@
 
 namespace Spender.Controls
 {
-    public class AdControlView : View
+    public class LottieControlView : View
     {
 
     }
