@@ -12,3 +12,14 @@ Spender/Spender.Core/bin/
 Spender/Spender.Core/obj/
 Spender/Spender/bin/
 Spender/Spender/obj/
+Flutter/spender/.DS_Store
+Flutter/spender/.atom/
+Flutter/spender/.dart_tool/
+Flutter/spender/.idea
+Flutter/spender/.vscode/
+Flutter/spender/.packages
+Flutter/spender/.pub/
+Flutter/spender/build/
+Flutter/spender/ios/.generated/
+Flutter/spender/packages
+Flutter/spender/.flutter-plugins
